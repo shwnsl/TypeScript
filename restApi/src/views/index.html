@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script defer src="/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <h1>회원 등록</h1>
+            <div id="notify">등록 완료</div>
+            <form id="form" action="/api/v1/customers" method="POST">
+                <label for="name">이름 :</label>
+                <input type="text" name="name" id="name">
+                <label for="address">주소 :</label>
+                <input type="text" name="address" id="address">
+                <label for="email">이메일 :</label>
+                <input type="text" name="email" id="email">
+                <button type="submit" id="apply">등록</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

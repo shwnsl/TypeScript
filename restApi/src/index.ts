@@ -9,6 +9,7 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import connectDB from './database'
 import jwt, { VerifyErrors } from 'jsonwebtoken'
+import path from 'path'
 
 connectDB();
 const sec: string = process.env.TOKEN_SECRET as string;
@@ -26,6 +27,11 @@ const corsOptions = {
     origin : '*',
     credential : true
 }
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../dist')));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+})
 
 // auth
 router.post('/api/v1/auth', (req, res) => {
@@ -49,9 +55,9 @@ const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
 
 app.use(cors(corsOptions));
 
-app.get('/', (req, res) => {
-    res.send("hell yeah")
-})
+// app.get('/', (req, res) => {
+//     res.send("hell yeah")
+// })
 
 // mongoose connect 
 // mongoose.connect(process.env.MONGODB_URL || '')
