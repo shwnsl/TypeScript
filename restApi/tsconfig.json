@@ -6,7 +6,8 @@
         "esModuleInterop": true,
         "moduleResolution": "Node",
         "outDir": "./dist",
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "lib": ["es5","dom"]
     },
     "include": ["src", "jwt_token.js"],
     "exclude": ["node_modules"]
